@@ -6,5 +6,6 @@
         -->
         <class>org.neos.hibernate.domain.Address</class>
        	<class>org.neos.hibernate.domain.Customer</class>
+       	<class>org.neos.hibernate.domain.Telephone</class>
     </persistence-unit>
 </persistence>

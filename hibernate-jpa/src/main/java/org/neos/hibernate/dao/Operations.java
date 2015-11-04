@@ -3,7 +3,7 @@ package org.neos.hibernate.dao;
 import javax.persistence.EntityManager;
 
 import org.neos.hibernate.domain.Customer;
-import org.neos.hibernate.utils.JpaSessionEntitymanager;
+import org.neos.hibernate.utils.JPAUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +15,7 @@ public class Operations {
 		EntityManager em = null;
 		try {
 
-			em = JpaSessionEntitymanager.getEntityManager();
+			em = JPAUtil.getEntityManager();
 			log.info("SE OBTIENE CLIENTE ID... : " + customer.getCustomerId());
 			em.getTransaction().begin();
 
@@ -28,7 +28,7 @@ public class Operations {
 			log.error("ERROR in get data Customer", e);
 			em.getTransaction().rollback();
 		} finally {
-			JpaSessionEntitymanager.close();
+			JPAUtil.close();
 		}
 
 		return resultCustomer;

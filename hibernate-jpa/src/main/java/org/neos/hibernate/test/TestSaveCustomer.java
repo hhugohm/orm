@@ -1,45 +1,40 @@
 package org.neos.hibernate.test;
 
-import org.neos.hibernate.dao.AddressDao;
-import org.neos.hibernate.dao.AddressDaoImpl;
 import org.neos.hibernate.dao.CustomerDao;
 import org.neos.hibernate.dao.CustomerDaoImpl;
 import org.neos.hibernate.domain.Address;
 import org.neos.hibernate.domain.Customer;
+import org.neos.hibernate.utils.JPAUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TestSaveCustomer {
-
-	private static CustomerDao customerDao;
-	private static AddressDao addressDao;
+	private static final Logger log = LoggerFactory.getLogger(TestSaveCustomer.class);
 	
-	private static final Logger log = 
-			LoggerFactory.getLogger(TestSaveAddress.class);
+	private static CustomerDao customerDao;
+	
 	public static void main(String[] args) {
-
+		try {
 		customerDao =new CustomerDaoImpl();
-		addressDao = new AddressDaoImpl();
 		Address  address = new Address();
-		address.setAddress("DOMICILIO CONOCIDO");
+		address.setAddress("DOMICILIO CONOCIDO2");
 		address.setNumberInt(502);
 		address.setPostalCode(52100);
-		address.setComments("SIN DESCRIPCION");
+		address.setComments("SIN DESCRIPCION2");
 		
-		addressDao.saveAddress(address);
-		
-	
 		Customer customer = new Customer();
 		customer.setAddress(address);
-		customer.setName("JUDITH");
-		customer.setLastName("HIDALGO COLIN");
+		customer.setName("HUGO");
+		customer.setLastName("HIDALGO MARTINEZ");
 		customer.setPhone("N/A");
-		customerDao.saveCustomer(customer);
+		customerDao.persist(customer);
 		
-		log.info("Id Customer " + customer.getCustomerId());
-
-
-
+		log.info(customer.toString());
+		} catch (Exception e) {
+			log.error("", e);
+		} finally {
+			JPAUtil.getEntityManagerFactory().close();
+		}
 	}
 
 }

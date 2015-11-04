@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
+    <persistence-unit name="learn_persistence" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>org.neos.hibernate.domain.Address</class>
+       	<class>org.neos.hibernate.domain.Customer</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/papeleria"/>
+            <property name="javax.persistence.jdbc.user" value="camus"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.password" value="Temporal001"/>
+            <!-- 
+            <property name="hbm2ddl.auto" value="create" />
+             -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <!-- 
+            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+             -->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.transaction.flush_before_completion" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>

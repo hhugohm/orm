@@ -20,6 +20,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
 		<property name="jpaDialect" ref="jpaDialect" />
+		
 	</bean>
 
 	<bean id="jpaVendorAdapter"
@@ -39,8 +40,9 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
 	<!-- bean post-processor for JPA annotations -->
+	<!--  
 <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
-
+-->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />

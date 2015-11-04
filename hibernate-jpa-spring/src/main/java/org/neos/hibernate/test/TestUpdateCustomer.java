@@ -1,11 +1,11 @@
 package org.neos.hibernate.test;
 
 import org.neos.hibernate.dao.CustomerDao;
-import org.neos.hibernate.dao.CustomerDaoImpl;
 import org.neos.hibernate.domain.Customer;
-import org.neos.hibernate.utils.JPAUtil;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestUpdateCustomer {
 	
@@ -14,8 +14,8 @@ public class TestUpdateCustomer {
 	private static CustomerDao customerDao;
 	
 	public static void main(String args[]) {
-		try {
-			customerDao = new CustomerDaoImpl();
+		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
+			customerDao = (CustomerDao)ctx.getBean("customerDao");
 
 			Customer customer = new Customer();
 			customer.setCustomerId(1);
@@ -29,11 +29,7 @@ public class TestUpdateCustomer {
 			} else {
 				log.info("::NO SE ENCONTRO LA ENTIDAD:::");
 			}
-		} catch (Exception e) {
-			log.error("", e);
-		} finally {
-			JPAUtil.getEntityManagerFactory().close();
-		}
+			ctx.close();
 
 	}
 }

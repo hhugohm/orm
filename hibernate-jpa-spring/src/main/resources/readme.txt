@@ -1,0 +1,2 @@
+Cuando se utliza JPA es necesario iterar para borrar e insertar para las relaciones que se refieren a Colecctions
+http://stackoverflow.com/questions/7825484/jpa-delete-where-does-not-delete-children-and-throws-an-exception

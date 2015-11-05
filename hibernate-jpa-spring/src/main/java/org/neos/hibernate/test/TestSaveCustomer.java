@@ -16,15 +16,15 @@ public class TestSaveCustomer {
 		CustomerDao customerDao = (CustomerDao)ctx.getBean("customerDao");
 		
 		Address  address = new Address();
-		address.setAddress("DOMICILIO CONOCIDO2");
+		address.setAddress("DOMICILIO CONOCIDO");
 		address.setNumberInt(502);
 		address.setPostalCode(52100);
-		address.setComments("SIN DESCRIPCION2");
+		address.setComments("SIN DESCRIPCION");
 		
 		Customer customer = new Customer();
 		customer.setAddress(address);
-		customer.setName("HUGO2");
-		customer.setLastName("HIDALGO MARTINEZ2");
+		customer.setName("HUGO");
+		customer.setLastName("HIDALGO MARTINEZ");
 		customer.setPhone("N/A");
 		
 		customerDao.persist(customer);

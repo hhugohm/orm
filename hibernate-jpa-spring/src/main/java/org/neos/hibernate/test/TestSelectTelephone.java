@@ -1,7 +1,7 @@
 package org.neos.hibernate.test;
 
 
-import org.neos.hibernate.dao.TelephonesDao;
+import org.neos.hibernate.dao.TelephoneDao;
 import org.neos.hibernate.domain.Telephone;
 import org.neos.hibernate.domain.TelephoneKey;
 import org.slf4j.Logger;
@@ -14,7 +14,7 @@ public class TestSelectTelephone {
 	public static void main(String[] args) {
 		try {
 			ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
-			TelephonesDao telephoneDao = (TelephonesDao)ctx.getBean("telephonesDao");
+			TelephoneDao telephoneDao = (TelephoneDao)ctx.getBean("telephonesDao");
 			TelephoneKey key = new TelephoneKey(1,"1");
 			
 

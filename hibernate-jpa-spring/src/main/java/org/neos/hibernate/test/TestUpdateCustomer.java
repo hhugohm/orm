@@ -18,12 +18,12 @@ public class TestUpdateCustomer {
 			customerDao = (CustomerDao)ctx.getBean("customerDao");
 
 			Customer customer = new Customer();
-			customer.setCustomerId(1);
+			customer.setCustomerId(7);
 
 			customer = customerDao.find(customer.getCustomerId());
 			if (customer != null) {
 				log.debug(customer.toString());
-				customer.setPhone("7227150689");
+				customer.setPhone("71389895627");
 				customerDao.update(customer);
 				log.info("::SE MODIFICO LA ENTIDAD:::");
 			} else {

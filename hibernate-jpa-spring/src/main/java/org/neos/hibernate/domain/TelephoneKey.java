@@ -44,12 +44,21 @@ public class TelephoneKey implements Serializable{
 	} 
 	@Override
 	public int hashCode() {
-		return 0;
+		return id.hashCode()+idCustomer.hashCode();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof TelephoneKey) {
+			TelephoneKey telephoneKey = (TelephoneKey) obj;
+			
+			if(!telephoneKey.getId().equals(id)){
+				return false;
+			}
+			if(!telephoneKey.getIdCustomer().equals(idCustomer)){
+				return false;
+			}
+			return true;
 		}
 
 		return false;

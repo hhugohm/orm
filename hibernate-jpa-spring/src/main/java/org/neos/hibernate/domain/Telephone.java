@@ -16,7 +16,7 @@ public class Telephone implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
+	@EmbeddedId   //al ocupar esta anotacion es obligatorio que la clase key sobreescriba los metodos hashcode y equals
 	private TelephoneKey telephoneKey;
 
 	@Column(name = "TELEPHONE")

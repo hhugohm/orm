@@ -42,5 +42,17 @@ public class TelephoneKey implements Serializable{
 	public void setIdCustomer(String idCustomer) {
 		this.idCustomer = idCustomer;
 	} 
+	@Override
+	public int hashCode() {
+		return 0;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof TelephoneKey) {
+		}
+
+		return false;
+	}
 
 }

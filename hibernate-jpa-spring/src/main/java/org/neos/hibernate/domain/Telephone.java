@@ -8,18 +8,17 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="telephones")
+@Table(name = "telephones")
 public class Telephone implements Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
 
 	@EmbeddedId
 	private TelephoneKey telephoneKey;
-	
+
 	@Column(name = "TELEPHONE")
 	private String telephone;
 
@@ -38,15 +37,14 @@ public class Telephone implements Serializable {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	
+
 	@Override
-	public String toString(){
+	public String toString() {
 		StringBuilder cadena = new StringBuilder();
-		cadena.append("idTelephone: "+ telephoneKey.getId()+" ");
-		cadena.append("idCustomer: "+ telephoneKey.getIdCustomer()+" ");
-		cadena.append("Telephone: "+ this.telephone +" ");
+		cadena.append("idTelephone: " + telephoneKey.getId() + " ");
+		cadena.append("idCustomer: " + telephoneKey.getIdCustomer() + " ");
+		cadena.append("Telephone: " + this.telephone + " ");
 		return cadena.toString();
 	}
-	
-	
+
 }

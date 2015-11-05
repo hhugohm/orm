@@ -1,6 +1,7 @@
 package org.neos.hibernate.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,11 +12,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name ="customer",catalog="PAPELERIA")
+@Table(name ="CUSTOMER",catalog="PAPELERIA")
 public class Customer implements Serializable {
 	/**
 	 * 
@@ -26,6 +28,7 @@ public class Customer implements Serializable {
 	private String lastName;
 	private String phone;
     private Address address;
+    private List<Telephone> phones;
     
     @Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -64,6 +67,15 @@ public class Customer implements Serializable {
 	}
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	
+	@OneToMany(orphanRemoval=true,cascade={CascadeType.ALL},fetch=FetchType.EAGER)
+	@JoinColumn(name="CUSTOMER_ID", referencedColumnName="CUSTOMER_ID")
+	public List<Telephone> getPhones() {
+		return phones;
+	}
+	public void setPhones(List<Telephone> phones) {
+		this.phones = phones;
 	}
 	@Override
 	public String toString(){

@@ -7,10 +7,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service
+@Repository
 @Transactional
 public class AbstractDaoImpl<T extends Serializable> implements AbstractDao<T> {
 
@@ -36,8 +36,8 @@ public class AbstractDaoImpl<T extends Serializable> implements AbstractDao<T> {
 	}
 
 	@Override
-	public void remove(T t) {
-		manager.remove(manager.merge(t));
+	public void remove(Serializable id) {
+		manager.remove(manager.find(aClass, id));
 	}
 
 	@Override

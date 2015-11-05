@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "telephones")
+@Table(name = "TELEPHONE")
 public class Telephone implements Serializable {
 
 	/**
@@ -21,7 +21,11 @@ public class Telephone implements Serializable {
 
 	@Column(name = "TELEPHONE")
 	private String telephone;
-
+	
+	@Column(name = "TYPE_PHONE")
+	private String typeTelephone;
+    
+	//es obligatorio el constructor default
 	public TelephoneKey getTelephoneKey() {
 		return telephoneKey;
 	}
@@ -37,6 +41,14 @@ public class Telephone implements Serializable {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
+	
+	public String getTypeTelephone() {
+		return typeTelephone;
+	}
+
+	public void setTypeTelephone(String typeTelephone) {
+		this.typeTelephone = typeTelephone;
+	}
 
 	@Override
 	public String toString() {
@@ -44,6 +56,7 @@ public class Telephone implements Serializable {
 		cadena.append("idTelephone: " + telephoneKey.getId() + " ");
 		cadena.append("idCustomer: " + telephoneKey.getIdCustomer() + " ");
 		cadena.append("Telephone: " + this.telephone + " ");
+		cadena.append("Type: " + this.typeTelephone + " ");
 		return cadena.toString();
 	}
 

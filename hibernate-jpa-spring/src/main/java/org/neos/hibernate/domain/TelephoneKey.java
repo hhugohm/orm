@@ -13,11 +13,13 @@ public class TelephoneKey implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "ID_TELEPHONE", nullable = false)
+	@Column(name = "TELEPHONE_ID", nullable = false)
     private Integer id;
 
-    @Column(name = "ID_CUSTOMER", nullable = false)
+    @Column(name = "CUSTOMER_ID", nullable = false)
     private String idCustomer;
+    
+    
     
     public TelephoneKey(){
     	

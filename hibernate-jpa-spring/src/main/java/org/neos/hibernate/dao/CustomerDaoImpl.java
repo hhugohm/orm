@@ -12,5 +12,4 @@ public class CustomerDaoImpl  extends AbstractDaoImpl<Customer> implements Custo
 	public CustomerDaoImpl() {
 		super(Customer.class);
 	}
-	
 }

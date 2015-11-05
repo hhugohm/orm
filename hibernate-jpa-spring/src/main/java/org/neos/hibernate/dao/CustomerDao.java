@@ -10,7 +10,7 @@ public interface CustomerDao {
 	
 	public void persist(Customer customer);
 	 public void update(Customer customer);
-	 public void remove(Customer customer);
+	 public void remove(Serializable id);
 	 public Customer find(Serializable id);
 	 public List<Customer> findAll();
 

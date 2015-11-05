@@ -25,7 +25,14 @@ public class Telephone implements Serializable {
 	@Column(name = "TYPE_PHONE")
 	private String typeTelephone;
     
-	//es obligatorio el constructor default
+	public Telephone(TelephoneKey telephoneKey,String telephone,String typeTelephone){
+		this.telephoneKey=telephoneKey;
+		this.telephone=telephone;
+		this.typeTelephone=typeTelephone;
+	}
+	public Telephone(){
+	}
+	
 	public TelephoneKey getTelephoneKey() {
 		return telephoneKey;
 	}

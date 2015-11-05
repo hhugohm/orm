@@ -19,11 +19,9 @@ public class TelephoneKey implements Serializable{
     @Column(name = "CUSTOMER_ID", nullable = false)
     private String idCustomer;
     
-    
-    
     public TelephoneKey(){
-    	
     }
+    
     public TelephoneKey(Integer id,String idCustomer){
     	this.id=id;
     	this.idCustomer=idCustomer;
